@@ -25,8 +25,8 @@ import org.calyxos.datura.models.DaturaItem
 import org.calyxos.datura.models.Sort
 import javax.inject.Inject
 
-@AndroidEntryPoint(Fragment::class)
-class AppListFragment : Hilt_AppListFragment(R.layout.fragment_app_list) {
+@AndroidEntryPoint
+class AppListFragment : Fragment(R.layout.fragment_app_list) {
 
     private var _binding: FragmentAppListBinding? = null
     private val binding get() = _binding!!

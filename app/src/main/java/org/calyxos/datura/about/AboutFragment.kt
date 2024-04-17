@@ -15,9 +15,11 @@ import android.view.View
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import dagger.hilt.android.AndroidEntryPoint
 import org.calyxos.datura.R
 import org.calyxos.datura.databinding.FragmentAboutBinding
 
+@AndroidEntryPoint
 class AboutFragment : Fragment(R.layout.fragment_about) {
 
     private var _binding: FragmentAboutBinding? = null

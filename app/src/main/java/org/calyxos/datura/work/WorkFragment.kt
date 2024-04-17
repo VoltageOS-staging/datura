@@ -10,9 +10,11 @@ import android.content.pm.CrossProfileApps
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import dagger.hilt.android.AndroidEntryPoint
 import org.calyxos.datura.R
 import org.calyxos.datura.databinding.FragmentWorkBinding
 
+@AndroidEntryPoint
 class WorkFragment : Fragment(R.layout.fragment_work) {
 
     private var _binding: FragmentWorkBinding? = null
