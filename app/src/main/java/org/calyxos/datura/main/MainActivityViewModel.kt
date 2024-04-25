@@ -52,29 +52,37 @@ class MainActivityViewModel @Inject constructor(
                 val systemHeader = this.indexOfLast { it.type == Type.HEADER }
 
                 // Installed apps
-                subList(1, systemHeader - 1).sortByDescending { a -> (a as App).lastTimeUsed }
+                if (this.filterIsInstance<App>().any { !it.systemApp }) {
+                    subList(1, systemHeader - 1).sortByDescending { a -> (a as App).lastTimeUsed }
+                }
 
                 // System apps
-                subList(
-                    systemHeader + 1,
-                    this.size
-                ).sortByDescending { a -> (a as App).lastTimeUsed }
+                if (this.filterIsInstance<App>().any { it.systemApp }) {
+                    subList(
+                        systemHeader + 1,
+                        this.size
+                    ).sortByDescending { a -> (a as App).lastTimeUsed }
+                }
             }
         } else {
             _appList.value = _appList.value.toMutableList().apply {
                 val systemHeader = this.indexOfLast { it.type == Type.HEADER }
 
                 // Installed apps
-                subList(
-                    1,
-                    systemHeader - 1
-                ).sortWith(compareBy(String.CASE_INSENSITIVE_ORDER) { (it as App).name })
+                if (this.filterIsInstance<App>().any { !it.systemApp }) {
+                    subList(
+                        1,
+                        systemHeader - 1
+                    ).sortWith(compareBy(String.CASE_INSENSITIVE_ORDER) { (it as App).name })
+                }
 
                 // System apps
-                subList(
-                    systemHeader + 1,
-                    this.size
-                ).sortWith(compareBy(String.CASE_INSENSITIVE_ORDER) { (it as App).name })
+                if (this.filterIsInstance<App>().any { it.systemApp }) {
+                    subList(
+                        systemHeader + 1,
+                        this.size
+                    ).sortWith(compareBy(String.CASE_INSENSITIVE_ORDER) { (it as App).name })
+                }
             }
         }
     }
