@@ -5,15 +5,7 @@ different types of network connections such as Wi-Fi, cellular, VPN, etc.
 
 ## Development
 
-Datura is compatible with both AOSP and Gradle build systems and seamlessly integrates with CalyxOS.
-
-To build in AOSP, add the following lines to an included Makefile:
-
-```makefile
-# Apps
-PRODUCT_PACKAGES += \
-    Datura \
-```
+Datura is compatible with the Gradle build system and seamlessly integrates with CalyxOS.
 
 To build in Android Studio, clone this repo to get started. Ensure that the testing device targets
 a supported API level. The `debug` build type is additionally signed with AOSP signing keys (test keys) to
